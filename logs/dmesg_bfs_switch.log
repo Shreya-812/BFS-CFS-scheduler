@@ -1,0 +1,11 @@
+[   31.012345] [BFS-CFS] Custom Kernel Boot Detected - Hybrid Scheduler Active
+[   35.678901] [BFS-CFS] Task PID=1234 switched to BFS mode (manual trigger)
+[   35.679123] [BFS-CFS] Assigned to core 0 (BFS core)
+[   40.451234] [BFS-CFS] Task PID=1234 CPU usage spike detected
+[   45.332198] [BFS-CFS] Task PID=1234 exceeded time slice - continuing in BFS
+[  930.102312] [BFS-CFS] Task PID=1234 has exceeded 15-minute threshold
+[  930.102456] [BFS-CFS] Task PID=1234 reverting back to CFS
+[  930.102678] [BFS-CFS] Reassigned to core 2 (CFS default core)
+[ 1030.222333] [BFS-CFS] Task PID=5678 manually assigned to BFS
+[ 1035.112345] [BFS-CFS] BFS load nearing core limit (2 active cores)
+[ 1200.987654] [BFS-CFS] Task PID=5678 completed - switching back to CFS
