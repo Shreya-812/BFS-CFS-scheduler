@@ -1,0 +1,51 @@
+==========================================
+ Building Custom Linux Kernel: BFS-CFS Patch
+==========================================
+
+[Step 1] Extracting Kernel Source...
+-> Source directory: linux-5.15.1
+
+[Step 2] Applying custom modifications to scheduler
+-> Modified: kernel/sched/core.c
+-> Modified: kernel/sched/fair.c
+-> Added:    kernel/sched/bfs.c
+
+[Step 3] Running defconfig...
+-> Command: make defconfig
+-> Completed successfully.
+
+[Step 4] Starting compilation (make -j4)...
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/kconfig/conf.o
+  HOSTLD  scripts/kconfig/conf
+  ...
+  CC      kernel/sched/core.o
+  CC      kernel/sched/fair.o
+  CC      kernel/sched/bfs.o
+  ...
+  LD      vmlinux
+  OBJCOPY arch/x86/boot/bzImage
+-> Compilation successful. Kernel image generated: arch/x86/boot/bzImage
+
+[Step 5] Installing modules...
+-> Command: sudo make modules_install
+-> Completed successfully.
+
+[Step 6] Installing kernel...
+-> Command: sudo make install
+-> Installing bzImage, System.map, config to /boot
+-> Updating GRUB configuration...
+-> Command: sudo update-grub
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-5.15.1
+Found initrd image: /boot/initrd.img-5.15.1
+done
+
+[Step 7] Reboot and select custom kernel from GRUB menu
+-> Use arrow keys at boot to choose: Linux 5.15.1 BFS-CFS Hybrid
+
+==========================================
+ Kernel Build & Installation Completed
+==========================================
+
+Next Step: Reboot the system and validate kernel behavior using test scripts.
